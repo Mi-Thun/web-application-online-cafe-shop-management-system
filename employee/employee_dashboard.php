@@ -57,8 +57,8 @@ if (!isset($employee_id)) {
             }
             ?>
             <h3><span>$</span><?= $total_pendings; ?><span>/-</span></h3>
-            <p>total pendings</p>
-            <a href="placed_orders.php" class="btn">see orders</a>
+            <p>Total Pending Amount</p>
+            <a href="placed_orders.php" class="btn">View Orders</a>
          </div>
 
          <div class="box">

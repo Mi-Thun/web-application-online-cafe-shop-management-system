@@ -47,7 +47,7 @@ html {
 
 section {
    margin: 0 auto;
-   max-width: 1200px;
+
    padding: 2rem;
 }
 
@@ -168,6 +168,7 @@ section {
 
 .header {
    position: sticky;
+   padding: 0 150px;
    top: 0;
    left: 0;
    right: 0;
@@ -339,7 +340,8 @@ section {
 
 .products .box-container {
    display: grid;
-   grid-template-columns: repeat(auto-fit, 33rem);
+   /* grid-template-columns: repeat(auto-fit, 33rem); */
+   grid-template-columns: repeat(4, 33rem);
    justify-content: center;
    align-items: flex-start;
    gap: 1.5rem;
@@ -929,7 +931,6 @@ section {
    color: var(--white);
 }
 
-
 .footer .grid {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
@@ -1000,11 +1001,103 @@ section {
    height: 25rem;
 }
 
-
-
 /* media queries  */
 
-@media (max-width:991px) {
+@media (max-width:1284px) {
+
+   html {
+      font-size: 55%;
+   }
+
+   .products .box-container {
+      grid-template-columns: repeat(3, 33rem);
+   }
+
+   @media (max-width:991px) {
+
+      html {
+         font-size: 55%;
+      }
+
+      .products .box-container {
+         grid-template-columns: repeat(2, 33rem);
+      }
+
+      @media (max-width:768px) {
+
+         #menu-btn {
+            display: inline-block;
+         }
+
+         .header .flex .navbar {
+            position: absolute;
+            top: 99%;
+            left: 0;
+            right: 0;
+            border-top: var(--border);
+            border-bottom: var(--border);
+            background-color: var(--white);
+            transition: .2s linear;
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+         }
+
+         .header .flex .navbar a {
+            display: block;
+            margin: 2rem;
+         }
+
+
+
+         .products .box-container {
+            grid-template-columns: repeat(2, 33rem);
+
+            .header .flex .navbar.active {
+               clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+         }
+
+         @media (max-width:450px) {
+
+            html {
+               font-size: 50%;
+            }
+
+            .title {
+               font-size: 3rem;
+            }
+
+            .header .flex .logo {
+               font-size: 2rem;
+            }
+
+            .hero .slide .content h3 {
+               font-size: 5rem;
+            }
+
+            .products .box-container {
+               grid-template-columns: 1fr;
+            }
+
+            .heading h3 {
+               font-size: 3.5rem;
+            }
+
+            .products .cart-total {
+               padding: 1.5rem;
+               justify-content: center;
+            }
+
+            .flex-btn {
+               flex-flow: column;
+               gap: 0;
+            }
+
+         }
+
+         /* media queries  */
+
+         /* @media (max-width:991px) {
 
    html {
       font-size: 55%;
@@ -1077,4 +1170,4 @@ section {
       gap: 0;
    }
 
-}
+} */
