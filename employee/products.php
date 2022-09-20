@@ -75,7 +75,8 @@ if (isset($_GET['delete'])) {
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="../css/employee_style.css">
+   <link rel="stylesheet" href="../css/dashboard_style.css">
+   <link rel="stylesheet" href="../css/table.css">
 
 </head>
 
@@ -110,49 +111,61 @@ if (isset($_GET['delete'])) {
 
    <section class="show-products" style="padding-top: 0;">
 
-      <div class="box-container">
+      <div class="table_header">
+         <p>Product Details</p>
+         <div>
+            <input placeholder="product name">
+            <button class="add_new">search</button>
+         </div>
+      </div>
 
-         <?php
-         $show_products = $conn->prepare("SELECT * FROM `products`");
-         $show_products->execute();
-         if ($show_products->rowCount() > 0) {
-            while ($fetch_products = $show_products->fetch(PDO::FETCH_ASSOC)) {
-         ?>
-               <div class="box">
-                  <img src="../uploaded_img/<?= $fetch_products['image']; ?>" alt="">
-                  <div class="flex">
-                     <div class="price"><span>$</span><?= $fetch_products['price']; ?><span>/-</span></div>
-                     <div class="category"><?= $fetch_products['category']; ?></div>
-                  </div>
-                  <div class="name"><?= $fetch_products['name']; ?></div>
-                  <div class="flex-btn">
-                     <a href="update_product.php?update=<?= $fetch_products['id']; ?>" class="option-btn">update</a>
-                     <a href="products.php?delete=<?= $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
-                  </div>
-               </div>
-         <?php
-            }
-         } else {
-            echo '<p class="empty">no products added yet!</p>';
-         }
-         ?>
+      </div>
+      <div>
+         <table class="table">
+            <thead>
+               <tr>
+                  <th>ID</th>
+                  <th>Photo</th>
+                  <th>name</th>
+                  <th>price</th>
+                  <th>catagory</th>
+                  <th>Action</th>
+               </tr>
+            </thead>
+            <tbody>
+               <?php
+               $show_products = $conn->prepare("SELECT * FROM `products`");
+               $show_products->execute();
+               if ($show_products->rowCount() > 0) {
+                  while ($fetch_products = $show_products->fetch(PDO::FETCH_ASSOC)) {
+               ?>
+                     <tr>
+                        <td><?= $fetch_products['id']; ?></td>
+                        <td><img style="height: 60px;" src="../uploaded_img/<?= $fetch_products['image']; ?>" alt=""></td>
+                        <td><?= $fetch_products['name']; ?></td>
+                        <td><span>$</span><?= $fetch_products['price']; ?><span></td>
+                        <td><?= $fetch_products['category']; ?></td>
 
+
+                        <td>
+                           <a href="update_product.php?update=<?= $fetch_products['id']; ?>"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
+                           <a href="products.php?delete=<?= $fetch_products['id']; ?>" onclick="return confirm('delete this product?');"><button><i class="fa-solid fa-trash"></i></button></a>
+                        </td>
+                     </tr>
+
+               <?php
+                  }
+               } else {
+                  echo '<p class="empty">no products added yet!</p>';
+               }
+               ?>
+            </tbody>
+         </table>
       </div>
 
    </section>
 
    <!-- show products section ends -->
-
-
-
-
-
-
-
-
-
-
-
    <!-- custom js file link  -->
    <script src="../js/employee_script.js"></script>
 

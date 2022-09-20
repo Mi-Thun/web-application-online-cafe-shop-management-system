@@ -14,6 +14,8 @@ if (isset($_POST['submit'])) {
 
    $name = $_POST['name'];
    $name = filter_var($name, FILTER_SANITIZE_STRING);
+   $age = $_POST['age'];
+   $age = filter_var($name, FILTER_SANITIZE_STRING);
    $pass = sha1($_POST['pass']);
    $pass = filter_var($pass, FILTER_SANITIZE_STRING);
    $cpass = sha1($_POST['cpass']);
@@ -28,8 +30,8 @@ if (isset($_POST['submit'])) {
       if ($pass != $cpass) {
          $message[] = 'confirm passowrd not matched!';
       } else {
-         $insert_employee = $conn->prepare("INSERT INTO `employee`(name, password) VALUES(?,?)");
-         $insert_employee->execute([$name, $cpass]);
+         $insert_employee = $conn->prepare("INSERT INTO `employee`(name, age, password) VALUES(?,?,?)");
+         $insert_employee->execute([$name, $age, $cpass]);
          $message[] = 'new employee registered!';
       }
    }
@@ -50,7 +52,7 @@ if (isset($_POST['submit'])) {
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="../css/admin_style.css">
+   <link rel="stylesheet" href="../css/dashboard_style.css">
 
 </head>
 
@@ -65,6 +67,7 @@ if (isset($_POST['submit'])) {
       <form action="" method="POST">
          <h3>register new</h3>
          <input type="text" name="name" maxlength="20" required placeholder="enter your username" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+         <input type="age" name="age" maxlength="2" required placeholder="enter your age" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
          <input type="password" name="pass" maxlength="20" required placeholder="enter your password" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
          <input type="password" name="cpass" maxlength="20" required placeholder="confirm your password" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
          <input type="submit" value="register now" name="submit" class="btn">

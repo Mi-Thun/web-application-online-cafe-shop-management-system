@@ -72,7 +72,7 @@ if(isset($_POST['send'])){
    <div class="row">
 
       <div class="image">
-         <img src="images/contact-img.svg" alt="">
+         <img src="images/contact-us.jpg" alt="">
       </div>
 
       <form action="" method="post">

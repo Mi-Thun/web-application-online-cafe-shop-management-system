@@ -131,7 +131,7 @@ if (isset($_POST['submit'])) {
             <select name="method" class="box" required>
                <option value="" disabled selected>select payment method --</option>
                <option value="cash on delivery">cash on delivery</option>
-               <option value="credit card">bkash</option>
+               <option value="bkash">bkash</option>
             </select>
             <input type="submit" value="place order" class="btn <?php if ($fetch_profile['address'] == '') {
                                                                      echo 'disabled';
@@ -143,21 +143,9 @@ if (isset($_POST['submit'])) {
    </section>
 
 
-
-
-
-
-
-
-
    <!-- footer section starts  -->
    <?php include 'components/footer.php'; ?>
    <!-- footer section ends -->
-
-
-
-
-
 
    <!-- custom js file link  -->
    <script src="js/script.js"></script>

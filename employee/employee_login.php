@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>login</title>
+   <title>Employee login</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -57,25 +57,10 @@ if (isset($_POST['submit'])) {
    }
    ?>
 
-   <!-- employee login form section starts  -->
-   <!-- 
-   <section class="form-container">
-
-      <form action="" method="POST">
-         <h3>login now</h3>
-         <p>default username = <span>employee</span> & password = <span>111</span></p>
-         <input type="text" name="name" maxlength="20" required placeholder="enter your username" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-         <input type="password" name="pass" maxlength="20" required placeholder="enter your password" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-         <input type="submit" value="login now" name="submit" class="btn">
-      </form>
-
-   </section> -->
-
-
    <section class="box">
 
       <form action="" method="POST">
-         <h1>login</h1>
+         <h1>Employee logIn</h1>
          <ul>
             <li><label for="name">User name</label></li>
             <li><input type="text" name="name" maxlength="20" required placeholder="" oninput="this.value = this.value.replace(/\s/g, '')"></li>
